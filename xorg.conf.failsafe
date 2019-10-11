@@ -1,0 +1,9 @@
+Section "Module" 
+    Load "dri2" 
+    Load "glamoregl" 
+EndSection 
+Section "Device" 
+    Identifier "intel" 
+    Driver "intel" 
+    Option "AccelMethod" "glamor" 
+EndSection
