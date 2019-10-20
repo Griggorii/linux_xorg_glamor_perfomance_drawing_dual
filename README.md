@@ -19,13 +19,21 @@ Terminal
 && cd /etc/X11/ 
 
 && cat << EOF > xorg.conf
+
 Section "Device" 
+
     Identifier "intel" 
+    
     Driver "modesetting" 
+    
     Option "AccelMethod" "sna" 
+    
     Option "TearFree" "false"
+    
     Option "DRI" "3"
+    
 EndSection
+
 EOF
 
 
