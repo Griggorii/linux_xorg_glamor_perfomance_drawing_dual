@@ -19,6 +19,7 @@ Terminal
 && cd /etc/X11/ 
 
 && cat << EOF > xorg.conf
+
 Section "Device" 
     Identifier "intel" 
     Driver "modesetting"     
