@@ -12,6 +12,13 @@ chmod +x Install_xorg_fix.sh | run in terminal
 ------------------------------------------------------------------------------------------------------------------------------
 Optimal xorg config no tiring obs-studio no perfomance
 
+Terminal
+
+&&su
+
+&& cd /etc/X11/ 
+
+&& cat << EOF > xorg.conf
 Section "Device" 
     Identifier "intel" 
     Driver "modesetting" 
@@ -19,5 +26,6 @@ Section "Device"
     Option "TearFree" "false"
     Option "DRI" "3"
 EndSection
+EOF
 
 
