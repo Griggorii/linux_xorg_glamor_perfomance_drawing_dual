@@ -3,7 +3,10 @@ linux_xorg_glamor_perfomance_uxa_intel_double_SPEED2X
 
 run terminal in folder script command:
 
-$ chmod +x Install_xorg_fix.sh | run in terminal
+$ chmod +x Install_xorg_fix.sh
+
+run in terminal запустите как в терминале , а можете перетащить фаил Install_xorg_fix.sh на любой терминал потому что простым 
+запуском не установится нужен пароль иначе только папка засорится в состав входит даже деинсталятор он появится когда скрипт будет исполнен.
 
 или самим сделать исполняемым и запустить в терминале потребует пароль и установит после надо будет перезагрузить компьютер.
 
