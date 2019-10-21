@@ -1,7 +1,11 @@
 # linux_xorg_glamor_perfomance_uxa_tearing_obs_studio_fix_intel
 linux_xorg_glamor_perfomance_uxa_tearing_fix_intel
 
+linux_xorg_V1
+
+
 chmod +x Install_xorg_fix.sh | run in terminal
+
 
 или самим сделать исполняемым и запустить в терминале потребует пароль и установит после надо будет перезагрузить компьютер.
 
