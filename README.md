@@ -5,7 +5,7 @@ Not not download 5 min Wait upload подождите не скачивайте 
 
 run terminal in folder script command:
 
-$ chmod +x Install_xorg_intel_perfomance_yes.sh
+$ chmod +x Install_xorg_intel_perfomance_yes.sh and / или Install_xorg_fbdev_accel_method_glamor_perfomance_yes.sh
 
 run in terminal запустите как в терминале , а можете перетащить фаил Install_xorg_intel_perfomance_yes.sh на любой терминал и нажать ENTER затребует пароль в состав входит даже деинсталятор он появится когда скрипт будет исполнен или самим сделать исполняемым и запустить в терминале потребует пароль и установит после надо будет перезагрузить компьютер.
 
