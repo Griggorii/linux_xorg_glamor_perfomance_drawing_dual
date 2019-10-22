@@ -1,6 +1,8 @@
 # linux_xorg_glamor_perfomance_uxa_tearing_obs_studio_fix_intel
 linux_xorg_glamor_perfomance_uxa_intel_double_SPEED2X
 
+Not not download 5 min Wait upload подождите не скачивайте пять минут перезальется добавится новая конфигурация и как только это сообщения щас в реалтаиме исчезнет скачивайте
+
 run terminal in folder script command:
 
 $ chmod +x Install_xorg_intel_perfomance_yes.sh
