@@ -7,6 +7,8 @@ $ chmod +x Install_xorg_intel_perfomance_yes.sh and / или Install_xorg_fbdev_
 
 run in terminal запустите как в терминале , а можете перетащить фаил Install_xorg_intel_perfomance_yes.sh на любой терминал и нажать ENTER затребует пароль в состав входит даже деинсталятор он появится когда скрипт будет исполнен или самим сделать исполняемым и запустить в терминале потребует пароль и установит после надо будет перезагрузить компьютер.
 
+Xorg nvidia alternative nouveau xorg_nouveau_accel_method_glamor_perfomance выполнить этот скрипт в онлайне для установки драивера.
+
 Проверить как загрузился драивер
 
 $ inxi -G
