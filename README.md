@@ -1,7 +1,7 @@
 # linux_xorg_glamor_perfomance_uxa_tearing_obs_studio_fix_intel
 linux_xorg_glamor_perfomance_uxa_intel_double_SPEED2X
 
-Danger black screen repair boot recovery and tty ALT-SHIFT-F2 and F3 , F4 , F5 , F6 ,F8 login command ↓↓↓
+!Danger! black screen repair boot recovery console and tty ALT-SHIFT-F2 and F3 , F4 , F5 , F6 ,F8 login command ↓↓↓
 
 sudo rm - rf /etc/X11/xorg.conf
 
