@@ -3,21 +3,45 @@ linux_xorg_glamor_perfomance_uxa_intel_double_SPEED2X
 
 !Danger! black screen repair boot recovery console and tty ALT-SHIFT-F2 and F3 , F4 , F5 , F6 ,F8 login command ↓↓↓
 
-sudo rm - rf /etc/X11/xorg.conf
+$ sudo rm - rf /etc/X11/xorg.conf
 
-sudo rm - rf /etc/X11/xorg.conf.failsafe
+$ sudo rm - rf /etc/X11/xorg.conf.failsafe
 
-sudo rm - rf /usr/share/X11/xorg.conf.d/20-nouveau.conf
+$ sudo rm - rf /usr/share/X11/xorg.conf.d/20-nouveau.conf
 
-sudo rm - rf /usr/share/X11/xorg.conf.d/20-intel.conf
+$ sudo rm - rf /usr/share/X11/xorg.conf.d/20-intel.conf
 
-sudo rm - rf /etc/X11/xorg.conf.d
+$ sudo rm - rf /etc/X11/xorg.conf.d
 
-sudo service lightdm restart and sudo service gdm restart , sudo service gdm3 restart 
+$ sudo service lightdm restart 
 
-Not systemd ? Ок ↓↓↓ example
+and gdm , gdm3 manager-session ? ОK ↓↓↓ 
 
-sudo /usr/sbin/lightdm restart , sudo systemctl /usr/sbin/lightdm restart , sudo /usr/sbin/gdm restart , sudo systemctl /usr/sbin/gdm restart , gnome 3 ? sudo /usr/sbin/gdm3 restart , sudo systemctl /usr/sbin/gdm3 restart
+$ sudo service gdm restart
+
+$ sudo service gdm3 restart 
+
+Not systemd ? Not problem session restart. Ок example ↓↓↓ 
+
+$ sudo /usr/sbin/lightdm restart
+
+$ sudo systemctl /usr/sbin/lightdm restart
+
+gnome manager-session ?
+
+$ sudo /usr/sbin/gdm restart
+
+and not job command ? ok variant 2 command ↓↓↓
+
+$ sudo systemctl /usr/sbin/gdm restart
+
+gnome 3 manager-session ? 
+
+$ sudo /usr/sbin/gdm3 restart
+
+and not job command ? ok variant 2 command ↓↓↓
+
+$ sudo systemctl /usr/sbin/gdm3 restart
 
 __________________________________________________________________________________________________________________________
 
