@@ -7,6 +7,8 @@ xorg session onli , drawing not support stable in wayland!
 
 sudo apt install hardinfo -y
 
+sudo apt-get install xserver-xorg-core -y
+
 Test benchmark drawing -> screenshot
 
 ___________________________________________________________________________
@@ -14,8 +16,6 @@ ___________________________________________________________________________
 Install run terminal sh script glamor in folder script command sudo:
 
 chmod +x Install_xorg_method_glamor_perfomance_drawing_yes.sh
-
-sudo apt-get install xserver-xorg-core -y
 
 ./chmod +x Install_xorg_method_glamor_perfomance_drawing_yes.sh
 
