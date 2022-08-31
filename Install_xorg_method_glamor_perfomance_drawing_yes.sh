@@ -35486,16 +35486,25 @@ cat > 'Производительность_интел_в_два_раза_выш
 Мною была так же предпринята попытка переноса на низко уровневое api где возможно я на редактировал много лишнего что позднее переделаю или оставлю как есть если это не работает https://youtu.be/xy0xiZiIbe8 одно работает точно это antitearing , возможно glamor не работает и работает только 20-intel.conf из за "TearFree" , т.е по моей идее если это более низко уровневое то в каких то играх через wine итд может и подхватить некое ускорение так как wine работает от mesa если такое есть с помощью совпадения флагов в памяти и такое бывало , но конечно никто не будет сидеть годами и проводить всякие эксперименты , а у меня уже есть шаблон что сработал.
 EOL
 cat > '20-intel.conf' <<EOL
+Section "Module"
+	Load  "dri2"
+	Load  "dri3"
+	Load  "glamoregl"
+EndSection
+
+Section "ServerLayout"
+    Identifier  "Layout0"
+    Option      "AutoAddDevices" "true"
+    Option      "AutoAddGPU" "true"
+EndSection
+
 Section "Device"
     Identifier  "Intel Graphics"
     Driver      "intel"
-    Option      "TearFree"
-    Option      "AutoAddDevices" "true"
-    Option      "AutoAddGPU" "true"
-    Option      "nouveau" "modeset=0"
-    Option      "lbm-nouveau" "modeset=0"
-    Option      "nouveau" "off"
-    Option      "lbm-nouveau" "off"
+    Option "AccelMethod" "glamor"
+    Option "TearFree" "on"
+    Option "ColorTiling" "on"
+    Option "ColorTiling2D" "on"
     # Enable caching of images directly written with uxa->put_image.
     # default: True
     #Option "EnableImageCache" "True"
@@ -35515,6 +35524,8 @@ Section "Module"
 	Load  "dri2"
 	Load  "glamoregl"
 EndSection
+EOF
+rm glamor.conf
 EOF
 cat << EOF > .drirc
 <device screen="0" driver="dri2">
@@ -36203,7 +36214,26 @@ EOF
 # blacklist nouveau
 # options nouveau modeset=0
 EOF
-echo "EOF" >> uninstall_xorg_by_Griggorii.sh && echo "sudo rm - rf /usr/share/X11/xorg.conf.d/glamor.conf && sudo rm - rf /usr/share/X11/xorg.conf.d/20-intel.conf && notify-send -i info Information "перезагрузитесь что бы изменения вступили в силу please reboot restart by Griggorii "" >> uninstall_xorg_by_Griggorii.sh
+sudo rm /etc/environment
+EOF
+cat > '/tmp/environment' <<EOL
+export QT_QPA_PLATFORMTHEME=qt5ct
+QT_X11_NO_MITSHM=1
+PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
+
+# Project Griggorii acceleration full speed game or benchmarks in linux
+# https://github.com/Griggorii/drirc_acceleration_idea |  ok tearing vblank_mode=0 > wayland tearing no
+
+mesa_glthread=false
+vblank_mode=1
+EOL
+sudo mv '/tmp/environment' '/etc/environment'
+EOF
+sudo cp '/tmp/environment' /etc/
+EOF
+rm '/tmp/environment'
+EOF
+echo "EOF" >> uninstall_xorg_by_Griggorii.sh && echo "sudo rm /usr/share/X11/xorg.conf.d/20-intel.conf && notify-send -i info Information "перезагрузитесь что бы изменения вступили в силу please reboot restart by Griggorii "" >> uninstall_xorg_by_Griggorii.sh
 EOF
 chmod +x uninstall_xorg_by_Griggorii.sh
 EOF
@@ -36215,16 +36245,32 @@ sudo rm - rf /etc/X11/xorg.conf.failsafe
 EOF
 sudo rm - rf /etc/X11/xorg.conf.d/*
 EOF
-sudo mv glamor.conf /usr/share/X11/xorg.conf.d/
+# sudo mv glamor.conf /usr/share/X11/xorg.conf.d/
 EOF
 sudo mv 20-intel.conf /usr/share/X11/xorg.conf.d/
 EOF
+sudo mv 20-intel.conf /usr/share/X11/xorg.conf.d/20-intel.conf
+EOF
+sudo rm -rf /etc/.drirc
+EOF
+sudo rm -rf /usr/etc/drirc
+EOF
+sudo rm -rf /etc/drirc
+EOF
+sudo rm -rf  /root/drirc
+EOF
+sudo rm -rf  /root/.drirc
+EOF
+rm ~/.drirc
+EOF
 mv .drirc ~/
+EOF
+rm ~/.drirc
 EOF
 sudo apt-get update
 EOF
 sudo apt-get install xserver-xorg-core -y
 EOF
-lsof /usr/share/X11/xorg.conf.d/glamor.conf & notify-send -i info Information "перезагрузитесь что бы изменения вступили в силу Xorg fix тиринг obs perfomance please reboot restart by Griggorii"
+lsof /usr/share/X11/xorg.conf.d/20-intel.conf & notify-send -i info Information "перезагрузитесь что бы изменения вступили в силу Xorg fix тиринг obs perfomance drawing please reboot restart by Griggorii"
 EOF
 clear
