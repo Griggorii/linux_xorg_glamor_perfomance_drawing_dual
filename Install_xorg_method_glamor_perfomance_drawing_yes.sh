@@ -35476,7 +35476,7 @@ EOF
 cat > 'Производительность_интел_в_два_раза_выше_by_griggorii_fix.md' <<EOL
                      09.05.2022 Drawing canvas xorg perfomance Griggorii@gmail.com
 
-Внимание ! В случае черного экрана зайти в wayland сессию в нее всегда можно зайти и выполнить команду sudo rm - rf /usr/share/X11/xorg.conf.d/glamor.conf && sudo rm - rf /usr/share/X11/xorg.conf.d/20-intel.conf
+Внимание ! В случае черного экрана зайти в wayland сессию в нее всегда можно зайти и выполнить команду sudo rm - rf /usr/share/X11/xorg.conf.d/20-intel.conf && sudo rm - rf /usr/share/X11/xorg.conf.d/glamor.conf
 
 Данный режим имеет ускорение в drawing в два три раза больше , что дает идею что если слоировать графику через некий эксперементальный режим , а точнее как то до надстроить или научиться это делать методом проб и ошибок то такие компании как amd и nvidia наверное будут рады такому видео драйверу , а пока он может вытягивать только drawing режим и то в сессии xorg только под интелом , из за недостатка инвестирования и вставляния палок на такие технологии как следствие нету оборудования проверить все мои эксперименты , я не знаю возможно ли такое на nvidia не дискретной видеокарте , зато очередной маркетолог вам расскажет про новую плашку и о том что она более не разгониться и надо брать к плашке новый процессор и остальную ерунду и получит копейку по этому я незнаю что будет если стоит видео дравер не на дискретной видео карте и вы примените эту настройку , данная настройка и имеет минусы и плюсы , минусы:
 
@@ -36245,6 +36245,8 @@ sudo rm - rf /etc/X11/xorg.conf.failsafe
 EOF
 sudo rm - rf /etc/X11/xorg.conf.d/*
 EOF
+sudo rm - rf /usr/share/X11/xorg.conf.d/glamor.conf
+EOF
 # sudo mv glamor.conf /usr/share/X11/xorg.conf.d/
 EOF
 sudo mv 20-intel.conf /usr/share/X11/xorg.conf.d/
@@ -36266,6 +36268,11 @@ EOF
 mv .drirc ~/
 EOF
 rm ~/.drirc
+EOF
+# Griggorii 02.09.2022 GPU Perfomance render 'interactive' https://github.com/Griggorii/Setting_dconf_linux_OS20.04_21.04_V53.0_By_Griggorii_Wayland_adaptation
+gsettings set org.gnome.settings-daemon.plugins.power power-button-action 'interactive'
+EOF
+gsettings set org.gnome.settings-daemon.plugins.power button-power 'interactive'
 EOF
 sudo apt-get update
 EOF
