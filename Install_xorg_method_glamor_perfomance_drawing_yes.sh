@@ -36278,6 +36278,263 @@ sudo apt-get update
 EOF
 sudo apt-get install xserver-xorg-core -y
 EOF
+lsof /usr/share/drirc.d/00-mesa-defaults.conf & sudo apt install wget -y
+EOF
+lsof /usr/share/drirc.d/00-mesa-defaults.conf & sudo apt install unzip -y
+EOF
+cat > '/tmp/.drirc' <<EOL
+</driconf>
+   <device driver="i830">
+      <application name="Default">
+         <!-- Force on S3TC hardware decompression support -->
+         <!-- https://github.com/Griggorii/Chromium_OS_77 -->
+<!-- https://github.com/Griggorii/Setting_dconf_linux_OS20.04_21.04_V53.0_By_Griggorii_Wayland_adaptation -->
+         <option name="force_s3tc_enable" value="true"/>
+         <option name="precise_trig" value="true"/>
+      </application>
+   </device>
+   <device driver="i915">
+      <application name="Default">
+         <option name="force_s3tc_enable" value="true"/>
+         <option name="precise_trig" value="true"/>
+      </application>
+   </device>
+   <device driver="i965">
+      <application name="Default">
+         <option name="force_s3tc_enable" value="true"/>
+      </application>
+   </device>
+   <device driver="nouveau_vieux">
+      <application name="Default">
+         <option name="force_s3tc_enable" value="true"/>
+      </application>
+   </device>
+   <device driver="r200">
+      <application name="Default">
+         <option name="force_s3tc_enable" value="true"/>
+      </application>
+   </device>
+   <device driver="radeon">
+      <application name="Default">
+         <option name="force_s3tc_enable" value="true"/>
+      </application>
+   </device>
+   <device driver="iris">
+      <application name="Default">
+         <option name="force_s3tc_enable" value="true"/>
+         <option name="precise_trig" value="true"/>
+      </application>
+   </device>
+   <device driver="kms_swrast">
+      <application name="Default">
+         <option name="force_s3tc_enable" value="true"/>
+      </application>
+   </device>
+   <device driver="nouveau">
+      <application name="Default">
+         <option name="force_s3tc_enable" value="true"/>
+      </application>
+   </device>
+   <device driver="r300">
+      <application name="Default">
+         <option name="force_s3tc_enable" value="true"/>
+      </application>
+   </device>
+   <device driver="r600">
+      <application name="Default">
+         <option name="force_s3tc_enable" value="true"/>
+      </application>
+   </device>
+   <device driver="radeonsi">
+      <application name="Default">
+         <option name="force_s3tc_enable" value="true"/>
+      </application>
+   </device>
+   <device driver="swrast">
+      <application name="Default">
+         <option name="force_s3tc_enable" value="true"/>
+      </application>
+   </device>
+   <device driver="virtio_gpu">
+      <application name="Default">
+         <option name="force_s3tc_enable" value="true"/>
+      </application>
+   </device>
+   <device driver="vmwgfx">
+      <application name="Default">
+         <option name="force_s3tc_enable" value="true"/>
+      </application>
+   </device>
+   <device driver="zink">
+      <application name="Default">
+         <option name="force_s3tc_enable" value="true"/>
+      </application>
+   </device>
+    <device screen="0" driver="dri2">
+        <application name="Default">
+         <!-- Griggorii setting anti tearing https://github.com/Griggorii/drirc_acceleration_idea  -->
+          <option name="vblank_mode" value="1"/>
+       </application>
+    </device>
+</driconf>
+   <device driver="*">
+        <application name="Default">
+            <option name="stub_occlusion_query" value="true" />
+            <option name="fragment_shader" value="true" />
+        </application>
+    </device>
+</driconf>
+ </device>
+   <GRUB_CMDLINE_LINUX_DEFAULT="quiet splash acpi_backlight=vendor">
+    <Identifier="Intel Graphics" Driver="intel" option="TearFree" "uxa">
+     <Section="Module" load="dri2" load="glamoregl">
+<Section="Device" Identifier="intel" Driver="vesa" option="AccelMethod" "glamor" "DRI" "2">
+<!-- https://github.com/Griggorii/linux_xorg_glamor_perfomance_uxa_tearing_fix_intel-nouveau  -->
+     </application>
+ </device>
+</driconf>
+
+# New config testing /etc/.drirc | remove $ rm /etc/.drirc | logical my idea dri driver /usr/lib/x86_64-linux-gnu/dri and alternative dri locations distros /usr/lib/dri /lib/dri
+
+# https://github.com/Griggorii/drirc_acceleration_idea
+
+# copyright generation drirc my chromium os 77 https://github.com/Griggorii/Chromium_OS_77  , my license is not free re-edit vendor Intel, AMD, nvidia and alternate vendor fork submit publish prohibited ! Examples of using $ sudo cp drirc /etc/ and home $ cp drirc ~/.drirc and rename .drirc
+
+# Only real technologies, not any fictional parasitic distributions support real technology investments and donate sberbank dollar card VISA 4276 4001 0004 2457 griggorii@gmail.com
+EOL
+sudo mv /tmp/.drirc /etc/
+EOF
+mv /tmp/.drirc /etc/
+EOF
+rm /tmp/.drirc
+EOF
+rm '/tmp/.drirc'
+EOF
+cat > '/tmp/.drirc' <<EOL
+<driconf> 
+    <device screen="0" driver="dri2"> 
+        <application name="Default">
+          <option name="vblank_mode" value="1"/>
+       </application>
+    </device>
+</driconf>
+
+# New config testing ~/.drirc | remove $ rm ~/.drirc vsync ON
+
+# Tutorial: Tearing onli ON ? | vsync OFF replace 1 to 0  | <option name="vblank_mode" value="0" edit test ~/.drirc ->  "vblank_mode" value="0"/> exit new session X11 test https://www.youtube.com/watch?v=9hIRq5HTh5s
+
+# https://github.com/Griggorii/drirc_acceleration_idea
+
+# Only real technologies, not any fictional parasitic distributions support real technology investments and donate sberbank dollar card VISA 4276 4001 0004 2457 griggorii@gmail.com
+EOL
+cp  /tmp/.drirc ~/
+EOF
+cp  /tmp/.drirc $HOME
+EOL
+cp  '/tmp/.drirc' ~/
+EOF
+cp  '/tmp/.drirc' $HOME
+EOL
+rm /tmp/.drirc
+EOF
+rm '/tmp/.drirc'
+EOF
+lsof /usr/share/drirc.d/00-mesa-defaults.conf & wget --no-check-certificate -P /tmp https://github.com/Griggorii/drirc_acceleration_idea/archive/refs/heads/main.zip
+EOF
+unzip '/tmp/main.zip' -d /tmp
+EOF
+lsof /etc/.drirc & sudo mkdir /usr/share/drirc.d
+EOF
+lsof /etc/drirc & sudo mkdir /usr/share/drirc.d
+EOF
+lsof /usr/etc/drirc & sudo mkdir /usr/share/drirc.d
+EOF
+lsof /usr/lib/x86_64-linux-gnu/dri/i965_dri.so & sudo cp '/tmp/drirc_acceleration_idea-main/griggorii_mesa_driconf/Ubuntu-new/00-mesa-defaults.conf' /usr/share/drirc.d/
+EOF
+lsof /usr/lib/x86_64-linux-gnu/dri/i915_dri.so & sudo cp '/tmp/drirc_acceleration_idea-main/griggorii_mesa_driconf/Ubuntu-new/00-mesa-defaults.conf' /usr/share/drirc.d/
+EOF
+lsof /usr/lib/x86_64-linux-gnu/dri/nouveau_vieux_dri.so & sudo cp '/tmp/drirc_acceleration_idea-main/griggorii_mesa_driconf/Ubuntu-new/00-amber-defaults.conf' /usr/share/drirc.d/
+EOF
+lsof /lib/x86_64-linux-gnu/dri/i965_dri.so & sudo cp '/tmp/drirc_acceleration_idea-main/griggorii_mesa_driconf/Ubuntu-new/00-mesa-defaults.conf' /usr/share/drirc.d/
+EOF
+lsof /lib/x86_64-linux-gnu/dri/i915_dri.so & sudo cp '/tmp/drirc_acceleration_idea-main/griggorii_mesa_driconf/Ubuntu-new/00-mesa-defaults.conf' /usr/share/drirc.d/
+EOF
+lsof /lib/x86_64-linux-gnu/dri/nouveau_vieux_dri.so & sudo cp '/tmp/drirc_acceleration_idea-main/griggorii_mesa_driconf/Ubuntu-new/00-amber-defaults.conf' /usr/share/drirc.d/
+EOF
+lsof /usr/lib/dri/i965_dri.so & sudo cp '/tmp/drirc_acceleration_idea-main/griggorii_mesa_driconf/Ubuntu-new/00-mesa-defaults.conf' /usr/share/drirc.d/
+EOF
+lsof /usr/lib/dri/i915_dri.so & sudo cp '/tmp/drirc_acceleration_idea-main/griggorii_mesa_driconf/Ubuntu-new/00-mesa-defaults.conf' /usr/share/drirc.d/
+EOF
+lsof /usr/lib/dri/nouveau_vieux_dri.so & sudo cp '/tmp/drirc_acceleration_idea-main/griggorii_mesa_driconf/Ubuntu-new/00-amber-defaults.conf' /usr/share/drirc.d/
+EOF
+lsof /lib/dri/i965_dri.so & sudo cp '/tmp/drirc_acceleration_idea-main/griggorii_mesa_driconf/Ubuntu-new/00-mesa-defaults.conf' /usr/share/drirc.d/
+EOF
+lsof /lib/dri/i915_dri.so & sudo cp '/tmp/drirc_acceleration_idea-main/griggorii_mesa_driconf/Ubuntu-new/00-mesa-defaults.conf' /usr/share/drirc.d/
+EOF
+lsof /lib/dri/nouveau_vieux_dri.so & sudo cp '/tmp/drirc_acceleration_idea-main/griggorii_mesa_driconf/Ubuntu-new/00-amber-defaults.conf' /usr/share/drirc.d/
+EOF
+grep -H -r -n  "vblank_mode" '/usr/share/drirc.d/00-amber-defaults.conf' && rm -rf  ~/.drirc
+EOF
+grep -H -r -n  "vblank_mode" '/usr/share/drirc.d/00-mesa-defaults.conf' && rm -rf  ~/.drirc
+EOF
+grep -H -r -n  "vblank_mode" '/usr/share/drirc.d/00-amber-defaults.conf' && rm -rf  ~/.drirc
+EOF
+grep -H -r -n  "vblank_mode" '/usr/share/drirc.d/00-mesa-defaults.conf' && rm -rf  ~/.drirc
+EOF
+grep -H -r -n  "vblank_mode" '/usr/share/drirc.d/00-amber-defaults.conf' && rm -rf  ~/.drirc
+EOF
+grep -H -r -n  "vblank_mode" '/usr/share/drirc.d/00-mesa-defaults.conf' && rm -rf  ~/.drirc
+EOF
+grep -H -r -n  "vblank_mode" '/usr/share/drirc.d/00-amber-defaults.conf' && sudo rm -rf /etc/drirc
+EOF
+grep -H -r -n  "vblank_mode" '/usr/share/drirc.d/00-mesa-defaults.conf' && sudo rm -rf /etc/drirc
+EOF
+grep -H -r -n  "vblank_mode" '/usr/share/drirc.d/00-amber-defaults.conf' && sudo rm -rf /etc/drirc
+EOF
+grep -H -r -n  "vblank_mode" '/usr/share/drirc.d/00-mesa-defaults.conf' && sudo rm -rf /etc/drirc
+EOF
+grep -H -r -n  "vblank_mode" '/usr/share/drirc.d/00-amber-defaults.conf' && sudo rm -rf /etc/drirc
+EOF
+grep -H -r -n  "vblank_mode" '/usr/share/drirc.d/00-mesa-defaults.conf' && sudo rm -rf /etc/drirc
+EOF
+grep -H -r -n  "vblank_mode" '/usr/share/drirc.d/00-amber-defaults.conf' && sudo rm -rf /etc/.drirc
+EOF
+grep -H -r -n  "vblank_mode" '/usr/share/drirc.d/00-mesa-defaults.conf' && sudo rm -rf /etc/.drirc
+EOF
+grep -H -r -n  "vblank_mode" '/usr/share/drirc.d/00-amber-defaults.conf' && sudo rm -rf /etc/.drirc
+EOF
+grep -H -r -n  "vblank_mode" '/usr/share/drirc.d/00-mesa-defaults.conf' && sudo rm -rf /etc/.drirc
+EOF
+grep -H -r -n  "vblank_mode" '/usr/share/drirc.d/00-amber-defaults.conf' && sudo rm -rf /etc/.drirc
+EOF
+grep -H -r -n  "vblank_mode" '/usr/share/drirc.d/00-mesa-defaults.conf' && sudo rm -rf /etc/.drirc
+EOF
+grep -H -r -n  "vblank_mode" '/usr/share/drirc.d/00-amber-defaults.conf' && sudo rm -rf /usr/etc/drirc
+EOF
+grep -H -r -n  "vblank_mode" '/usr/share/drirc.d/00-mesa-defaults.conf' && sudo rm -rf /usr/etc/drirc
+EOF
+grep -H -r -n  "vblank_mode" '/usr/share/drirc.d/00-amber-defaults.conf' && sudo rm -rf /usr/etc/drirc
+EOF
+grep -H -r -n  "vblank_mode" '/usr/share/drirc.d/00-mesa-defaults.conf' && sudo rm -rf /usr/etc/drirc
+EOF
+grep -H -r -n  "vblank_mode" '/usr/share/drirc.d/00-amber-defaults.conf' && sudo rm -rf /usr/etc/drirc
+EOF
+grep -H -r -n  "vblank_mode" '/usr/share/drirc.d/00-mesa-defaults.conf' && sudo rm -rf /usr/etc/drirc
+EOF
+grep -H -r -n  "vblank_mode" '/usr/share/drirc.d/00-amber-defaults.conf' && sudo rm -rf  /root/drirc
+EOF
+grep -H -r -n  "vblank_mode" '/usr/share/drirc.d/00-mesa-defaults.conf' && sudo rm -rf  /root/drirc
+EOF
+grep -H -r -n  "vblank_mode" '/usr/share/drirc.d/00-amber-defaults.conf' && sudo rm -rf  /root/drirc
+EOF
+grep -H -r -n  "vblank_mode" '/usr/share/drirc.d/00-mesa-defaults.conf' && sudo rm -rf  /root/drirc
+EOF
+grep -H -r -n  "vblank_mode" '/usr/share/drirc.d/00-amber-defaults.conf' && sudo rm -rf  /root/drirc
+EOF
+grep -H -r -n  "vblank_mode" '/usr/share/drirc.d/00-mesa-defaults.conf' && sudo rm -rf  /root/drirc
+EOF
+rm -rf '/tmp/drirc_acceleration_idea-main' '/tmp/main.zip'
+EOF
 lsof /usr/share/X11/xorg.conf.d/20-intel.conf & notify-send -i info Information "перезагрузитесь что бы изменения вступили в силу Xorg fix тиринг obs perfomance drawing please reboot restart by Griggorii"
 EOF
 clear
