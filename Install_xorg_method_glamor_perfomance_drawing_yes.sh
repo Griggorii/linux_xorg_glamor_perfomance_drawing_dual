@@ -51195,7 +51195,35 @@ EOF
 grep -H -r -n  "llvm9" /tmp/mesa_find_out_the_version_llvm.txt && grep -H -r -n  "2.2.5" /tmp/mesa_find_out_the_version_llvm.txt && grep -H -r -n  "2.3.4" /tmp/mesa_find_out_the_version_llvm.txt && grep -H -r -n  "nouveau" /tmp/mesa_find_out_the_version_llvm.txt && grep -H -r -n  "driDriver" /tmp/mesa_find_out_the_version_llvm.txt && sudo readelf --sections -h -l -S -s -A /usr/lib/x86_64-linux-gnu/dri/* < '/tmp/mesa_test_obj_code_dump_griggorii_beta_idea_nano_level_experiment.txt'
 EOF
 rm -rf '/tmp/mesa_test_obj_code_dump_griggorii_beta_idea_nano_level_experiment.txt' '/tmp/mesa_find_out_the_version_llvm.txt'
-EOF
+EOL
+cat > '/tmp/kvm_intel.conf' <<EOL
+options kvm_intel nested=1
+EOL
+cat > '/tmp/nvidia-kms.conf' <<EOL
+options nvidia-drm modeset=1
+EOL
+cat > '/tmp/qemu-system-x86.conf' <<EOL
+options kvm_intel nested=1
+EOL
+cat > '/tmp/vmwgfx-fbdev.conf' <<EOL
+options vmwgfx enable_fbdev=1
+EOL
+sudo cp '/tmp/kvm_intel.conf' /etc/modprobe.d/
+EOL
+sudo cp '/tmp/nvidia-kms.conf' /lib/modprobe.d/
+EOL
+sudo cp '/tmp/nvidia-kms.conf' /usr/lib/modprobe.d/
+EOL
+sudo cp '/tmp/qemu-system-x86.conf' /lib/modprobe.d/
+EOL
+sudo cp '/tmp/qemu-system-x86.conf' /usr/lib/modprobe.d/
+EOL
+sudo cp '/tmp/vmwgfx-fbdev.conf' /lib/modprobe.d/
+EOL
+sudo cp '/tmp/vmwgfx-fbdev.conf' /usr/lib/modprobe.d/
+EOL
+rm -rf '/tmp/kvm_intel.conf' '/tmp/nvidia-kms.conf' '/tmp/qemu-system-x86.conf' '/tmp/vmwgfx-fbdev.conf'
+EOL
 clear
 EOF
 clear
