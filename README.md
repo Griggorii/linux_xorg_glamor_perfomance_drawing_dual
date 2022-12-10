@@ -5,6 +5,10 @@ linux_xorg_glamor_perfomance_intel_double_SPEED2X__xorg_method_glamor_perfomance
 
 xorg session onli , drawing not support stable in wayland!
 
+sudo apt purge nvidia*
+
+sudo rm -rf  '/lib/modprobe.d/nvidia-graphics-drivers.conf' '/usr/modprobe.d/nvidia-graphics-drivers.conf' '/etc/modprobe.d/nvidia-graphics-drivers.conf'
+
 sudo apt install hardinfo -y
 
 sudo apt-get install xserver-xorg-core -y
