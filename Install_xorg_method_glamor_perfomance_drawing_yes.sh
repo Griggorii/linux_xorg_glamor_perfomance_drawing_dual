@@ -51311,6 +51311,21 @@ mv '/etc/modprobe.d/nvidia-graphics-drivers.conf' '/usr/lib/modprobe.d/nvidia-gr
 
 rm -rf '/tmp/griggorii_check_nvidia_or_nouvea' '/tmp/nvidia-graphics-drivers.conf'
 
+# Example energy batary power save command | sudo cpupower frequency-set --governor powersave
+cat > '/tmp/50-scaling-governor.rules' <<EOL
+SUBSYSTEM=="module", ACTION=="add", KERNEL=="acpi_cpufreq", RUN+=" /bin/sh -c "/usr/bin/echo performance /sys/devices/system/cpu/cpufreq/policy*/scaling_governor" && /bin/dash -c "/usr/bin/echo performance /sys/devices/system/cpu/cpufreq/policy*/scaling_governor" && /bin/sh -c "/usr/bin/echo 0 /sys/devices/system/cpu/cpu*/power/energy_perf_bias" && /bin/dash -c "/usr/bin/echo 0 /sys/devices/system/cpu/cpu*/power/energy_perf_bias" &&  /bin/sh -c ' echo performance > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor ' && sudo sh -c "/usr/bin/echo 0f > /sys/kernel/debug/dri/1/pstate" && sudo sh -c "/usr/bin/echo 0f > /sys/kernel/debug/dri/129/pstate" && sh -c "/usr/bin/echo 1 /sys/module/processor/parameters/ignore_ppc" && sh -c "/usr/bin/echo 0 /sys/devices/system/cpu/cpu*/power/energy_perf_bias" && sh -c "/usr/bin/echo performance /sys/devices/system/cpu/cpufreq/policy*/scaling_governor" && tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor <<<performance && modprobe msr && x86_energy_perf_policy performance "
+EOL
+
+sudo cp '/tmp/50-scaling-governor.rules' /etc/udev/rules.d/
+
+sudo cp '/tmp/50-scaling-governor.rules' /lib/udev/rules.d/
+
+sudo cp '/tmp/50-scaling-governor.rules' /usr/lib/udev/rules.d/
+
+lsof /usr/lib/udev/rules.d/50-scaling-governor.rules & sudo rm '/etc/udev/rules.d/50-scaling-governor.rules'
+
+rm '/tmp/50-scaling-governor.rules'
+
 clear
-EOF
+
 clear
