@@ -51196,34 +51196,121 @@ grep -H -r -n  "llvm9" /tmp/mesa_find_out_the_version_llvm.txt && grep -H -r -n 
 EOF
 rm -rf '/tmp/mesa_test_obj_code_dump_griggorii_beta_idea_nano_level_experiment.txt' '/tmp/mesa_find_out_the_version_llvm.txt'
 EOL
+cat > '/tmp/nvidia-graphics-drivers.conf' <<EOL
+blacklist nouveau
+blacklist lbm-nouveau
+alias nouveau off
+alias lbm-nouveau off
+EOL
+
+cp '/lib/modprobe.d/nvidia-graphics-drivers.conf' '/tmp'
+
+cp '/usr/lib/modprobe.d/nvidia-graphics-drivers.conf' '/tmp'
+
+cp '/etc/modprobe.d/nvidia-graphics-drivers.conf' '/tmp'
+
+lsof /usr/lib/xorg/modules/extensions/libglx.so & rm -rf  '/lib/modprobe.d/nvidia-graphics-drivers.conf' '/usr/lib/modprobe.d/nvidia-graphics-drivers.conf' '/etc/modprobe.d/nvidia-graphics-drivers.conf'
+
+lsof /usr/lib/xorg/modules/extensions/libglx.so & rm -rf  '/lib/modprobe.d/nvidia-graphics-drivers.conf' '/usr/lib/modprobe.d/nvidia-graphics-drivers.conf' '/etc/modprobe.d/nvidia-graphics-drivers.conf'
+
+lsof /usr/lib/xorg/modules/extensions/libglx.so & sudo rm -rf  '/lib/modprobe.d/nvidia-graphics-drivers.conf' '/usr/lib/modprobe.d/nvidia-graphics-drivers.conf' '/etc/modprobe.d/nvidia-graphics-drivers.conf'
+
+lsof /usr/lib/xorg/modules/extensions/libglx.so & sudo rm -rf  '/lib/modprobe.d/nvidia-graphics-drivers.conf' '/usr/lib/modprobe.d/nvidia-graphics-drivers.conf' '/etc/modprobe.d/nvidia-graphics-drivers.conf'
+
 cat > '/tmp/kvm_intel.conf' <<EOL
 options kvm_intel nested=1
 EOL
+
 cat > '/tmp/nvidia-kms.conf' <<EOL
 options nvidia-drm modeset=1
 EOL
+
 cat > '/tmp/qemu-system-x86.conf' <<EOL
 options kvm_intel nested=1
 EOL
+
 cat > '/tmp/vmwgfx-fbdev.conf' <<EOL
 options vmwgfx enable_fbdev=1
 EOL
+
 sudo cp '/tmp/kvm_intel.conf' /etc/modprobe.d/
-EOL
+
 sudo cp '/tmp/nvidia-kms.conf' /lib/modprobe.d/
-EOL
+
 sudo cp '/tmp/nvidia-kms.conf' /usr/lib/modprobe.d/
-EOL
+
 sudo cp '/tmp/qemu-system-x86.conf' /lib/modprobe.d/
-EOL
+
 sudo cp '/tmp/qemu-system-x86.conf' /usr/lib/modprobe.d/
-EOL
+
 sudo cp '/tmp/vmwgfx-fbdev.conf' /lib/modprobe.d/
-EOL
+
 sudo cp '/tmp/vmwgfx-fbdev.conf' /usr/lib/modprobe.d/
-EOL
+
+sudo mv '/etc/modprobe.d/kvm_intel.conf'  /lib/modprobe.d/
+
+sudo mv '/etc/modprobe.d/kvm_intel.conf'  /usr/lib/modprobe.d/
+
+sudo mv '/etc/modprobe.d/kvm_intel.conf' '/lib/modprobe.d/kvm_intel.conf'
+
+sudo mv '/etc/modprobe.d/kvm_intel.conf' '/usr/lib/modprobe.d/kvm_intel.conf'
+
+cp '/tmp/kvm_intel.conf' /etc/modprobe.d/
+
+cp '/tmp/nvidia-kms.conf' /lib/modprobe.d/
+
+cp '/tmp/nvidia-kms.conf' /usr/lib/modprobe.d/
+
+cp '/tmp/qemu-system-x86.conf' /lib/modprobe.d/
+
+cp '/tmp/qemu-system-x86.conf' /usr/lib/modprobe.d/
+
+cp '/tmp/vmwgfx-fbdev.conf' /lib/modprobe.d/
+
+cp '/tmp/vmwgfx-fbdev.conf' /usr/lib/modprobe.d/
+
+mv '/etc/modprobe.d/kvm_intel.conf'  /lib/modprobe.d/
+
+mv '/etc/modprobe.d/kvm_intel.conf'  /usr/lib/modprobe.d/
+
+mv '/etc/modprobe.d/kvm_intel.conf' '/lib/modprobe.d/kvm_intel.conf'
+
+mv '/etc/modprobe.d/kvm_intel.conf' '/usr/lib/modprobe.d/kvm_intel.conf'
+
 rm -rf '/tmp/kvm_intel.conf' '/tmp/nvidia-kms.conf' '/tmp/qemu-system-x86.conf' '/tmp/vmwgfx-fbdev.conf'
-EOL
+
+ls '/usr/src' > '/tmp/griggorii_check_nvidia_or_nouvea'
+
+grep -H -r -n "bbswitch" '/tmp/griggorii_check_nvidia_or_nouvea' & cp '/tmp/nvidia-graphics-drivers.conf' '/etc/modprobe.d'
+
+grep -H -r -n "bbswitch" '/tmp/griggorii_check_nvidia_or_nouvea' & sudo cp '/tmp/nvidia-graphics-drivers.conf' '/etc/modprobe.d'
+
+grep -H -r -n "bbswitch" '/tmp/griggorii_check_nvidia_or_nouvea' & cp '/tmp/nvidia-graphics-drivers.conf' '/usr/lib/modprobe.d'
+
+grep -H -r -n "bbswitch" '/tmp/griggorii_check_nvidia_or_nouvea' & cp '/tmp/nvidia-graphics-drivers.conf' '/lib/modprobe.d'
+
+grep -H -r -n "bbswitch" '/tmp/griggorii_check_nvidia_or_nouvea' & sudo cp '/tmp/nvidia-graphics-drivers.conf' '/usr/lib/modprobe.d'
+
+grep -H -r -n "bbswitch" '/tmp/griggorii_check_nvidia_or_nouvea' & sudo cp '/tmp/nvidia-graphics-drivers.conf' '/lib/modprobe.d'
+
+grep -H -r -n "nvidia-" '/tmp/griggorii_check_nvidia_or_nouvea' & cp '/tmp/nvidia-graphics-drivers.conf' '/etc/modprobe.d'
+
+grep -H -r -n "nvidia-" '/tmp/griggorii_check_nvidia_or_nouvea' & sudo cp '/tmp/nvidia-graphics-drivers.conf' '/etc/modprobe.d'
+
+grep -H -r -n "nvidia-" '/tmp/griggorii_check_nvidia_or_nouvea' & cp '/tmp/nvidia-graphics-drivers.conf' '/usr/lib/modprobe.d'
+
+grep -H -r -n "nvidia-" '/tmp/griggorii_check_nvidia_or_nouvea' & cp '/tmp/nvidia-graphics-drivers.conf' '/lib/modprobe.d'
+
+grep -H -r -n "nvidia-" '/tmp/griggorii_check_nvidia_or_nouvea' & sudo cp '/tmp/nvidia-graphics-drivers.conf' '/usr/lib/modprobe.d'
+
+grep -H -r -n "nvidia-" '/tmp/griggorii_check_nvidia_or_nouvea' & sudo cp '/tmp/nvidia-graphics-drivers.conf' '/lib/modprobe.d'
+
+mv '/etc/modprobe.d/nvidia-graphics-drivers.conf' '/lib/modprobe.d/nvidia-graphics-drivers.conf'
+
+mv '/etc/modprobe.d/nvidia-graphics-drivers.conf' '/usr/lib/modprobe.d/nvidia-graphics-drivers.conf'
+
+rm -rf '/tmp/griggorii_check_nvidia_or_nouvea' '/tmp/nvidia-graphics-drivers.conf'
+
 clear
 EOF
 clear
