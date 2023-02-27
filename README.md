@@ -1,4 +1,4 @@
-# linux_xorg_glamor_drawing_beta
+# Intel session X11 linux_xorg_glamor_drawing_beta
 linux_xorg_glamor_perfomance_intel_double_SPEED2X__xorg_method_glamor_perfomance_drawing
 
                            Onli benchmark hardinfo drawing xorg session / session wayland problem
