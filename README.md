@@ -33,11 +33,11 @@ $ ./uninstall_xorg_by_Griggorii.sh
 
 Reboot
 
-linux xorg glamor perfomance drawing dual:
+Intel session X11 linux xorg glamor perfomance drawing dual:
 
 <img src="https://github.com/Griggorii/linux_xorg_glamor_perfomance_drawing_dual/blob/master/Install_xorg_method_glamor_perfomance_drawing_yes.png">
 
-linux xorg glamor not perfomance drawing default:
+Intel session X11 linux xorg glamor not perfomance drawing default:
 
 <img src="https://github.com/Griggorii/linux_xorg_glamor_perfomance_drawing_dual/blob/master/Default_SPEED_CPU_DRAWING_XORG_SESSION.png">
 
