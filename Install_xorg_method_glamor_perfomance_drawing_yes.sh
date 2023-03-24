@@ -35476,7 +35476,7 @@ EOF
 cat > 'Производительность_интел_в_два_раза_выше_by_griggorii_fix.md' <<EOL
                      09.05.2022 Drawing canvas xorg perfomance Griggorii@gmail.com
 
-Внимание ! В случае черного экрана зайти в wayland сессию в нее всегда можно зайти и выполнить команду sudo rm - rf /usr/share/X11/xorg.conf.d/20-intel.conf && sudo rm - rf /usr/share/X11/xorg.conf.d/glamor.conf
+Внимание ! В случае черного экрана зайти в wayland сессию в нее всегда можно зайти и выполнить команду $ sudo rm - rf /usr/share/X11/xorg.conf.d/20-intel.conf
 
 Данный режим имеет ускорение в drawing в два три раза больше , что дает идею что если слоировать графику через некий эксперементальный режим , а точнее как то до надстроить или научиться это делать методом проб и ошибок то такие компании как amd и nvidia наверное будут рады такому видео драйверу , а пока он может вытягивать только drawing режим и то в сессии xorg только под интелом , из за недостатка инвестирования и вставляния палок на такие технологии как следствие нету оборудования проверить все мои эксперименты , я не знаю возможно ли такое на nvidia не дискретной видеокарте , зато очередной маркетолог вам расскажет про новую плашку и о том что она более не разгониться и надо брать к плашке новый процессор и остальную ерунду и получит копейку по этому я незнаю что будет если стоит видео дравер не на дискретной видео карте и вы примените эту настройку , данная настройка и имеет минусы и плюсы , минусы:
 
@@ -35486,6 +35486,10 @@ cat > 'Производительность_интел_в_два_раза_выш
 Мною была так же предпринята попытка переноса на низко уровневое api где возможно я на редактировал много лишнего что позднее переделаю или оставлю как есть если это не работает https://youtu.be/xy0xiZiIbe8 одно работает точно это antitearing , возможно glamor не работает и работает только 20-intel.conf из за "TearFree" , т.е по моей идее если это более низко уровневое то в каких то играх через wine итд может и подхватить некое ускорение так как wine работает от mesa если такое есть с помощью совпадения флагов в памяти и такое бывало , но конечно никто не будет сидеть годами и проводить всякие эксперименты , а у меня уже есть шаблон что сработал.
 EOL
 cat > '20-intel.conf' <<EOL
+# # # License MIT/LGPL Griggorii@gmail.com beta engine intel framework graphics
+# # # https://github.com/Griggorii/drirc_acceleration_idea
+# # # https://github.com/Griggorii/linux_xorg_glamor_perfomance_uxa_tearing_fix_intel-nouveau 
+
 Section "Module"
 	Load  "dri2"
 	Load  "dri3"
@@ -35493,29 +35497,84 @@ Section "Module"
 EndSection
 
 Section "ServerLayout"
-    Identifier  "Layout0"
-    Option      "AutoAddDevices" "true"
-    Option      "AutoAddGPU" "true"
+	Identifier  "Layout0"
+
+	# Enable AutoAddDevices
+	# default: True
+	#Option "AutoAddDevices" "true"
+
+	# Enable AutoAddGPU
+	# default: True
+	#Option "AutoAddGPU" "true"
 EndSection
 
 Section "Device"
-    Identifier  "Intel Graphics"
-    Driver      "intel"
-    Option "AccelMethod" "glamor"
-    Option "TearFree" "on"
-    Option "ColorTiling" "on"
-    Option "ColorTiling2D" "on"
-    # Enable caching of images directly written with uxa->put_image.
-    # default: True
-    #Option "EnableImageCache" "True"
+	Identifier     	"Intel Graphics"
+	Driver     	"intel"
+	Option     	"AccelMethod"	            "glamor"
+	Option    	"DRI"               	    "3"
+	Option    	"DRI"               	    "2"
+        VideoRam                                    24576
 
-    # Enable caching of images created by uxa->prepare_access.
-    # default: True
-    #Option "EnableFallbackCache" "True"
+	# Enable TearFree
+	# default: False
+	#Option "TearFree" "false"
 
-    # Enable the use of off-screen surfaces.
-    # default: True
-    #Option "EnableSurfaces" "True"
+	# Enable ColorTiling
+	# default: True
+	#Option "ColorTiling" "true"
+
+	# Enable ColorTiling2D
+	# default: True
+	#Option "ColorTiling2D" "true"
+
+	# Enable RenderAccel
+	# default: True
+	#Option "RenderAccel" "true"
+
+	# Enable SwapbuffersWait
+	# default: False
+	#Option "SwapbuffersWait" "false"
+
+	# Enable FramebufferCompression
+	# default: False
+	#Option "Throttle" "false"
+
+	# Enable TripleBuffer
+	# default: False
+	#Option "FramebufferCompression" "false"
+
+	# Enable TripleBuffer
+	# default: False
+	#Option "TripleBuffer" "false"
+
+	# Enable Shadow
+	# default: False
+	#Option "Shadow" "false"
+
+	# Enable LinearFramebuffer
+	# default: True
+	#Option "LinearFramebuffer" "true"
+
+	# Enable RelaxedFencing
+	# default: False
+        #Option "RelaxedFencing" "false"
+
+	# Enable BufferCache
+	# default: True
+        #Option "BufferCache" "true"
+
+	# Enable caching of images directly written with uxa->put_image.
+	# default: True
+	#Option "EnableImageCache" "True"
+
+	# Enable caching of images created by uxa->prepare_access.
+	# default: True
+	#Option "EnableFallbackCache" "True"
+
+	# Enable the use of off-screen surfaces.
+	# default: True
+	#Option "EnableSurfaces" "True"
 
 EndSection
 EOL
