@@ -35488,7 +35488,11 @@ EOL
 cat > '20-intel.conf' <<EOL
 # # # License MIT/LGPL Griggorii@gmail.com beta engine intel framework graphics
 # # # https://github.com/Griggorii/drirc_acceleration_idea
-# # # https://github.com/Griggorii/linux_xorg_glamor_perfomance_uxa_tearing_fix_intel-nouveau 
+# # # https://github.com/Griggorii/linux_xorg_glamor_perfomance_uxa_tearing_fix_intel-nouveau
+# # # Driver     	"intеl" drawing not acceleration dual speed benchmark "intеl" replace >>
+# # # >>> "intеl" example >> Section "Device" replace "modеsetting" >> Section "Device">> { Driver  "intеl" } 
+# # # "intеl" >> mesa kms problem black screen window command example glxgears
+# # # terminal paste command ( MESA_LOADER_DRIVER_OVERRIDE=kms_swrast glxgears -info )
 
 Section "Module"
 	Load  "dri2"
@@ -35512,9 +35516,25 @@ Section "Device"
 	Identifier     	"Intel Graphics"
 	Driver     	"intel"
 	Option     	"AccelMethod"	            "glamor"
-	Option    	"DRI"               	    "3"
+	Option "DRMDevice" "/dev/dri/renderD128"
 	Option    	"DRI"               	    "2"
+	Option    	"DRI"               	    "3"
         VideoRam                                    24576
+        
+        # adaptive strategy for any power source
+        # Option "RegistryDwords" "PowerMizerEnable=0x1; PerfLevelSrc=0x2233; PowerMizerDefault=0x3"
+
+        # batt=max power saving, AC=max power saving
+        # Option "RegistryDwords" "PowerMizerEnable=0x1; PerfLevelSrc=0x3333"
+
+        # batt=adaptive strategy, AC=max performance
+        # Option "RegistryDwords" "PowerMizerEnable=0x1; PerfLevelSrc=0x3322; PowerMizerDefaultAC=0x1"
+
+        # batt=max power saving, AC=max performance
+        Option "RegistryDwords" "PowerMizerEnable=0x1; PerfLevelSrc=0x2222; PowerMizerDefault=0x3; PowerMizerDefaultAC=0x1"
+
+        # batt=max power saving, AC=adaptive strategy
+        # Option "RegistryDwords" "PowerMizerEnable=0x1; PerfLevelSrc=0x2222; PowerMizerDefault=0x3; PowerMizerDefaultAC=0x3"
 
 	# Enable TearFree
 	# default: False
@@ -35536,11 +35556,11 @@ Section "Device"
 	# default: False
 	#Option "SwapbuffersWait" "false"
 
-	# Enable FramebufferCompression
+	# Enable Throttle
 	# default: False
 	#Option "Throttle" "false"
 
-	# Enable TripleBuffer
+	# Enable FramebufferCompression
 	# default: False
 	#Option "FramebufferCompression" "false"
 
@@ -35577,6 +35597,7 @@ Section "Device"
 	#Option "EnableSurfaces" "True"
 
 EndSection
+
 EOL
 cat << EOF > glamor.conf
 Section "Module"
